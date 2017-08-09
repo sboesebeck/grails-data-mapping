@@ -1,0 +1,10 @@
+dependencies {
+    compile project(':grails-datastore-gorm'),
+            project(':grails-datastore-web'),
+            project(':grails-datastore-gorm-async'),
+            project(':grails-datastore-gorm-support')
+
+    testCompile project(':grails-datastore-gorm-tck')
+    testRuntime "javax.servlet:javax.servlet-api:$servletApiVersion"
+
+}

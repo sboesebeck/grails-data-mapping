@@ -19,6 +19,7 @@ stacktrace.log
 *.iml
 *.ipr
 .idea/*
+.idea
 classes/*
 bin/
 boot-plugins/*/.idea/*
