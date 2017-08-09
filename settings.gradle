@@ -13,7 +13,7 @@ include ("grails-datastore-core",
         'grails-datastore-gorm-test',
         'grails-datastore-gorm-grails2-test',
         'grails-datastore-gorm-plugin-support',
-
+	'grails-datastore-gorm-morphium',
 
         // RX projects
         'grails-datastore-gorm-rx',
