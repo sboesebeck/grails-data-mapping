@@ -11,12 +11,15 @@ import org.springframework.context.support.GenericApplicationContext
 class Setup {
 
     static morphiumDs
+
     static destroy() {
         morphiumDs.disconnect()
     }
     static Session setup(classes) {
         def ctx = new GenericApplicationContext()
         ctx.refresh()
+        Properties config=new Properties();
+
         morphiumDs = new MorphiumDatastore(ctx)
         for (cls in classes) {
             morphiumDs.mappingContext.addPersistentEntity(cls)
@@ -27,8 +30,6 @@ class Setup {
         enhancer.enhance()
 
         morphiumDs.mappingContext.addMappingContextListener({ e -> enhancer.enhance e } as MappingContext.Listener)
-        morphiumDs.applicationContext.addApplicationListener new DomainEventListener(morphiumDs)
-        morphiumDs.applicationContext.addApplicationListener new AutoTimestampEventListener(morphiumDs)
 
         morphiumDs.connect()
     }
